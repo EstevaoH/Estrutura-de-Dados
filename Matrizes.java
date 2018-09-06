@@ -1,11 +1,10 @@
-import java.util.Scanner;
-
-public class Soma2 {
+public class Matriz {
 
     public static void main(String[] args) {
 
         System.out.println("1 - ADIÇÃO DE MATRIZES");
-        System.out.println("2 - SUBTRAÇÃO DE MATRIZES");
+        System.out.println("2 - MULTIPLIÇÃO DE MATRIZES ");
+        System.out.println("3 - SUBTRAÇÃO DE MATRIZES");
         Scanner opcao = new Scanner(System.in);
         System.out.println("Digite a opção de operação: ");
         int op = opcao.nextInt();
@@ -61,8 +60,42 @@ public class Soma2 {
                 System.out.printf("\n");
             }
         }
-        
-        if (op == 2) {//Subtração
+
+ 
+        if (op == 2) {//Multiplicação
+            System.out.println("Multiplicação");
+
+            System.out.println("MATRIZ A");
+
+            for (int i = 0; i < linhas; i++) {
+                for (int j = 0; j < colunas; j++) {
+                    System.out.printf("A[%d][%d]: ", i + 1, j + 1);
+                    A[i][j] = entrada.nextInt();
+                }
+            }
+
+            System.out.println("MATRIZ B");
+
+            for (int i = 0; i < linhas2; i++) {
+                for (int j = 0; j < colunas2; j++) {
+                    System.out.printf("B[%d][%d]:", i + 1, j + 1);
+                    B[i][j] = entrada.nextInt();
+                }
+            }
+
+            System.out.println("O PRODUTO DA MULTIPLICAÇÃO");
+            for (int i = 0; i < linhas; i++) {
+                for (int j = 0; j < colunas2; j++) {
+                    for (int x = 0; x < colunas; x++) {
+                        C[i][j] += A[i][x] * B[x][j];
+                    }
+                    System.out.printf("%d\t", C[i][j]);
+                }
+                System.out.print("\n");
+            }
+        }
+
+        if (op == 3) {//Subtração
             if (linhas != linhas2 || colunas != colunas2) {
                 System.out.println("Não é possivel fazer a subtração");
                 System.exit(1);
